@@ -1,0 +1,275 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/career/coursework_career_presentation_panel.gd" id="1_panel"]
+[ext_resource type="FontFile" path="res://assets/fonts/Silkscreen-Regular.ttf" id="2_regular"]
+[ext_resource type="FontFile" path="res://assets/fonts/Silkscreen-Bold.ttf" id="3_bold"]
+
+[sub_resource type="Theme" id="ThemeSilkscreen"]
+default_font = ExtResource("2_regular")
+
+[sub_resource type="StyleBoxFlat" id="StyleFinalPanel"]
+bg_color = Color(0.0901961, 0.129412, 0.168627, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27451, 0.74902, 0.815686, 1)
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleFinalButton"]
+bg_color = Color(0.364706, 0.45098, 0.509804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.905882, 0.941176, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleFinalButtonFocus"]
+bg_color = Color(0.364706, 0.45098, 0.509804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27451, 0.74902, 0.815686, 1)
+
+[node name="CareerPresentationPanel" type="Control"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("ThemeSilkscreen")
+script = ExtResource("1_panel")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="Label" parent="Content"]
+layout_mode = 2
+focus_mode = 2
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 24
+text = "Career progression"
+
+[node name="Status" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Career unavailable."
+
+[node name="Actions" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Start" type="Button" parent="Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Start"
+
+[node name="Continue" type="Button" parent="Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Continue"
+
+[node name="History" type="Button" parent="Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "History"
+
+[node name="Feedback" type="Button" parent="Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Feedback"
+
+[node name="Reset" type="Button" parent="Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Reset"
+
+[node name="History" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Career history"
+
+[node name="Feedback" type="VBoxContainer" parent="Content"]
+visible = false
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Content/Feedback"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Feedback is optional and does not change Career progression."
+autowrap_mode = 2
+
+[node name="Dismiss" type="Button" parent="Content/Feedback"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Dismiss feedback"
+
+[node name="ResetConfirmation" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="ResetConfirmation"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Text" type="Label" parent="ResetConfirmation/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "Reset Career? Cancel leaves the current career unchanged."
+autowrap_mode = 2
+
+[node name="Actions" type="HBoxContainer" parent="ResetConfirmation/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Cancel" type="Button" parent="ResetConfirmation/Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Confirm")
+focus_neighbor_right = NodePath("../Confirm")
+focus_next = NodePath("../Confirm")
+focus_previous = NodePath("../Confirm")
+theme_override_font_sizes/font_size = 18
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="ResetConfirmation/Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Cancel")
+focus_neighbor_right = NodePath("../Cancel")
+focus_next = NodePath("../Cancel")
+focus_previous = NodePath("../Cancel")
+theme_override_font_sizes/font_size = 18
+text = "Confirm reset"
+
+[node name="FinalPresentation" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -310.0
+offset_right = 480.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleFinalPanel")
+
+[node name="Content" type="VBoxContainer" parent="FinalPresentation"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="Label" parent="FinalPresentation/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.941176, 0.94902, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 24
+text = "Career final outcome"
+
+[node name="Outcome" type="Label" parent="FinalPresentation/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.427451, 0.745098, 0.482353, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Outcome unavailable."
+
+[node name="Summary" type="Label" parent="FinalPresentation/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.941176, 0.94902, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Final facts unavailable."
+
+[node name="OutstandingReview" type="Label" parent="FinalPresentation/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.658824, 0.294118, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = ""
+
+[node name="HistoryHeading" type="Label" parent="FinalPresentation/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.364706, 0.45098, 0.509804, 1)
+theme_override_font_sizes/font_size = 18
+text = "Five-day history"
+
+[node name="HistoryRows" type="VBoxContainer" parent="FinalPresentation/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Row1" type="Label" parent="FinalPresentation/Content/HistoryRows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Day 1: unavailable"
+
+[node name="Row2" type="Label" parent="FinalPresentation/Content/HistoryRows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Day 2: unavailable"
+
+[node name="Row3" type="Label" parent="FinalPresentation/Content/HistoryRows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Day 3: unavailable"
+
+[node name="Row4" type="Label" parent="FinalPresentation/Content/HistoryRows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Day 4: unavailable"
+
+[node name="Row5" type="Label" parent="FinalPresentation/Content/HistoryRows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Day 5: unavailable"
+
+[node name="MainMenu" type="Button" parent="FinalPresentation/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleFinalButton")
+theme_override_styles/focus = SubResource("StyleFinalButtonFocus")
+text = "Main Menu [RETURN]"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource path="res://src/main.gd" type="Script" id="1_main"]
+[ext_resource path="res://src/presentation/workstation/WorkstationDesktopShell.tscn" type="PackedScene" id="2_shell"]
+[ext_resource path="res://src/presentation/career/CareerPresentationPanel.tscn" type="PackedScene" id="3_career"]
+[ext_resource path="res://src/presentation/flow/StartupDayFlowPanel.tscn" type="PackedScene" id="4_startup"]
+[ext_resource path="res://src/presentation/audio/PresentationAudio.tscn" type="PackedScene" id="5_audio"]
+[ext_resource path="res://src/presentation/pause/PauseMenu.tscn" type="PackedScene" id="6_pause"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_main")
+
+[node name="WorkstationDesktopShell" parent="." instance=ExtResource("2_shell")]
+
+[node name="CareerPresentationPanel" parent="." instance=ExtResource("3_career")]
+visible = false
+
+[node name="StartupDayFlowPanel" parent="." instance=ExtResource("4_startup")]
+
+[node name="PresentationAudio" parent="." instance=ExtResource("5_audio")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_pause")]

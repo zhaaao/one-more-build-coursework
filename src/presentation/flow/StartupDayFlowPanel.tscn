@@ -1,0 +1,359 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/flow/startup_day_flow_panel.gd" id="1_script"]
+[ext_resource type="FontFile" path="res://assets/fonts/Silkscreen-Regular.ttf" id="2_regular"]
+[ext_resource type="FontFile" path="res://assets/fonts/Silkscreen-Bold.ttf" id="3_bold"]
+
+[sub_resource type="Theme" id="ThemeSilkscreen"]
+default_font = ExtResource("2_regular")
+
+[sub_resource type="StyleBoxFlat" id="StyleSurface"]
+bg_color = Color(0.0901961, 0.129412, 0.168627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.364706, 0.45098, 0.509804, 1)
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleModal"]
+bg_color = Color(0.0901961, 0.129412, 0.168627, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27451, 0.74902, 0.815686, 1)
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleButtonNormal"]
+bg_color = Color(0.364706, 0.45098, 0.509804, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.905882, 0.941176, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleButtonFocus"]
+bg_color = Color(0.364706, 0.45098, 0.509804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.27451, 0.74902, 0.815686, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleGreen"]
+bg_color = Color(0.427451, 0.745098, 0.482353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.905882, 0.941176, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleAmber"]
+bg_color = Color(0.905882, 0.658824, 0.294118, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.905882, 0.941176, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleCoral"]
+bg_color = Color(0.847059, 0.356863, 0.356863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.905882, 0.941176, 0.94902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleOverlay"]
+bg_color = Color(0.0901961, 0.129412, 0.168627, 1)
+
+[node name="StartupDayFlowPanel" type="Control"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("ThemeSilkscreen")
+script = ExtResource("1_script")
+
+[node name="Backdrop" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleOverlay")
+mouse_filter = 2
+
+[node name="StartupPanel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -248.0
+offset_right = 200.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleSurface")
+
+[node name="Content" type="VBoxContainer" parent="StartupPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="Label" parent="StartupPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.941176, 0.94902, 1)
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 24
+text = "ONE MORE BUILD"
+
+[node name="Subheading" type="Label" parent="StartupPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.364706, 0.45098, 0.509804, 1)
+theme_override_font_sizes/font_size = 18
+text = "Company workstation"
+
+[node name="StartGame" type="Button" parent="StartupPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Start Game"
+
+[node name="LoadGame" type="Button" parent="StartupPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Load Game"
+
+[node name="Tutorial" type="Button" parent="StartupPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Tutorial"
+
+[node name="Settings" type="Button" parent="StartupPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="StartupPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Quit"
+
+[node name="Status" type="Label" parent="StartupPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.941176, 0.94902, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Choose a route. Load Game opens the existing four-slot Save/Recovery surface."
+
+[node name="TutorialPanel" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(664, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -260.0
+offset_right = 332.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleModal")
+
+[node name="Content" type="VBoxContainer" parent="TutorialPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="Label" parent="TutorialPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 24
+text = "Startup orientation — 6 steps"
+
+[node name="Steps" type="Label" parent="TutorialPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "1. Start at Startup.\n2. Read the task briefing.\n3. Open Graph and use Auto Solve or edit manually.\n4. Run all public.\n5. Inspect Results.\n6. Confirm delivery and view the final outcome."
+
+[node name="Back" type="Button" parent="TutorialPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Back"
+
+[node name="SettingsPanel" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleModal")
+
+[node name="Content" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="Label" parent="SettingsPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 24
+text = "Settings placeholder"
+
+[node name="Message" type="Label" parent="SettingsPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Settings are not available on this startup screen yet. No value was changed or saved."
+
+[node name="Close" type="Button" parent="SettingsPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Close"
+
+[node name="DaySummaryPanel" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -220.0
+offset_right = 450.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleModal")
+
+[node name="Content" type="VBoxContainer" parent="DaySummaryPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Heading" type="Label" parent="DaySummaryPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bold")
+theme_override_font_sizes/font_size = 24
+text = "Day complete"
+
+[node name="ReceiptStatus" type="Label" parent="DaySummaryPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.941176, 0.94902, 1)
+theme_override_font_sizes/font_size = 18
+text = "[PASS] Accepted receipt"
+
+[node name="Summary" type="Label" parent="DaySummaryPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Accepted receipt facts appear here."
+
+[node name="ReceiptFacts" type="Label" parent="DaySummaryPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.941176, 0.94902, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Receipt facts unavailable."
+
+[node name="Continue" type="Button" parent="DaySummaryPanel/Content"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Continue"
+
+[node name="FreshStartConfirmation" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleModal")
+
+[node name="Content" type="VBoxContainer" parent="FreshStartConfirmation"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Text" type="Label" parent="FreshStartConfirmation/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+text = "Start a fresh Career? Cancel leaves the accepted Career unchanged."
+
+[node name="Actions" type="HBoxContainer" parent="FreshStartConfirmation/Content"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Cancel" type="Button" parent="FreshStartConfirmation/Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleButtonNormal")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Cancel"
+
+[node name="Confirm" type="Button" parent="FreshStartConfirmation/Content/Actions"]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleCoral")
+theme_override_styles/focus = SubResource("StyleButtonFocus")
+text = "Start fresh"

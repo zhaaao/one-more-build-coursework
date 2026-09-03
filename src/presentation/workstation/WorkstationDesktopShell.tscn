@@ -1,0 +1,929 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/workstation/workstation_desktop_shell.gd" id="1_shell"]
+[ext_resource type="PackedScene" path="res://src/presentation/authoring/GraphAuthoringPanel.tscn" id="2_authoring"]
+[ext_resource type="Texture2D" path="res://assets/art/env_company_far_1024.png" id="3_environment_far"]
+[ext_resource type="Texture2D" path="res://assets/art/env_company_mid_1024.png" id="4_environment_mid"]
+[ext_resource type="Texture2D" path="res://assets/art/env_workstation_near_1024.png" id="5_environment_near"]
+[ext_resource type="Texture2D" path="res://assets/art/ui_desktop_wallpaper_day1_640x360.png" id="6_preview_wallpaper"]
+[ext_resource type="Texture2D" path="res://assets/art/ui_action_icons_coursework_256.png" id="7_action_icons"]
+[ext_resource type="Texture2D" path="res://assets/art/ui_editor_window_day1_1024x576.png" id="8_editor_window"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_monitor_aperture"]
+bg_color = Color(0.015, 0.023, 0.035, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_preview_editor"]
+atlas = ExtResource("7_action_icons")
+region = Rect2(2, 2, 32, 32)
+
+[node name="WorkstationDesktopShell" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+self_modulate = Color(1, 1, 1, 1)
+script = ExtResource("1_shell")
+
+[node name="WorkstationView" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+clip_contents = true
+
+[node name="WorkstationBackdrop" type="ColorRect" parent="WorkstationView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.055, 0.082, 0.12, 1)
+
+[node name="EnvironmentFar" type="TextureRect" parent="WorkstationView"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 1152.0
+offset_bottom = 1024.0
+mouse_filter = 2
+texture_filter = 1
+texture = ExtResource("3_environment_far")
+expand_mode = 1
+stretch_mode = 0
+metadata/asset_path = "res://assets/art/env_company_far_1024.png"
+
+[node name="EnvironmentMid" type="TextureRect" parent="WorkstationView"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 1152.0
+offset_bottom = 1024.0
+mouse_filter = 2
+texture_filter = 1
+texture = ExtResource("4_environment_mid")
+expand_mode = 1
+stretch_mode = 0
+metadata/asset_path = "res://assets/art/env_company_mid_1024.png"
+
+[node name="MonitorAperture" type="Panel" parent="WorkstationView"]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 78.0
+offset_right = 948.0
+offset_bottom = 530.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_monitor_aperture")
+clip_contents = true
+
+[node name="DesktopPreview" type="TextureRect" parent="WorkstationView/MonitorAperture"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 42.0
+offset_right = 628.0
+offset_bottom = 402.0
+mouse_filter = 2
+texture_filter = 1
+texture = ExtResource("6_preview_wallpaper")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="PreviewEditorIcon" type="TextureRect" parent="WorkstationView/MonitorAperture"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 58.0
+offset_right = 60.0
+offset_bottom = 90.0
+mouse_filter = 2
+texture_filter = 1
+texture = SubResource("AtlasTexture_preview_editor")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="PreviewEditorLabel" type="Label" parent="WorkstationView/MonitorAperture"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 98.0
+offset_right = 78.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="EnvironmentNear" type="TextureRect" parent="WorkstationView"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 1152.0
+offset_bottom = 1024.0
+mouse_filter = 2
+texture_filter = 1
+texture = ExtResource("5_environment_near")
+expand_mode = 1
+stretch_mode = 0
+metadata/asset_path = "res://assets/art/env_workstation_near_1024.png"
+
+[node name="CompanyWall" type="ColorRect" parent="WorkstationView"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.055, 0.082, 0.12, 1)
+
+[node name="CompanyWindow" type="ColorRect" parent="WorkstationView"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 72.0
+offset_top = 48.0
+offset_right = -72.0
+offset_bottom = 146.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.095, 0.19, 0.27, 1)
+
+[node name="DeskSurface" type="ColorRect" parent="WorkstationView"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -230.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.22, 0.125, 0.085, 1)
+
+[node name="WorkstationTitle" type="Label" parent="WorkstationView"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 166.0
+offset_bottom = 202.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.93, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="ComputerTarget" type="Button" parent="WorkstationView"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 28.0
+offset_right = 994.0
+offset_bottom = 576.0
+focus_mode = 2
+tooltip_text = ""
+flat = true
+
+[node name="MonitorFrame" type="ColorRect" parent="WorkstationView/ComputerTarget"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.023, 0.035, 1)
+
+[node name="MonitorScreen" type="ColorRect" parent="WorkstationView/ComputerTarget/MonitorFrame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.065, 0.14, 0.2, 1)
+
+[node name="PreviewTopBar" type="ColorRect" parent="WorkstationView/ComputerTarget/MonitorFrame/MonitorScreen"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.12, 0.32, 0.4, 1)
+
+[node name="PreviewIconBacking" type="ColorRect" parent="WorkstationView/ComputerTarget/MonitorFrame/MonitorScreen"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 48.0
+offset_right = 112.0
+offset_bottom = 126.0
+mouse_filter = 2
+color = Color(0.18, 0.42, 0.52, 1)
+
+[node name="PreviewIconMark" type="Label" parent="WorkstationView/ComputerTarget/MonitorFrame/MonitorScreen"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 55.0
+offset_right = 112.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="PreviewIconLabel" type="Label" parent="WorkstationView/ComputerTarget/MonitorFrame/MonitorScreen"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 96.0
+offset_right = 126.0
+offset_bottom = 121.0
+theme_override_colors/font_color = Color(0.95, 0.98, 1, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="MonitorStand" type="ColorRect" parent="WorkstationView/ComputerTarget"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_top = 236.0
+offset_right = 38.0
+offset_bottom = 268.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.08, 0.1, 0.13, 1)
+
+[node name="ComputerPrompt" type="Label" parent="WorkstationView/ComputerTarget"]
+layout_mode = 0
+offset_left = 322.0
+offset_top = 506.0
+offset_right = 646.0
+offset_bottom = 546.0
+theme_override_colors/font_color = Color(0.93, 0.95, 0.9, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="DesktopView" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DesktopBackground" type="ColorRect" parent="DesktopView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.025, 0.095, 0.13, 1)
+
+[node name="DesktopWallpaper" type="TextureRect" parent="DesktopView"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+texture_filter = 1
+expand_mode = 1
+stretch_mode = 0
+
+[node name="WallpaperBand" type="ColorRect" parent="DesktopView"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_left = 0.56
+anchor_top = 0.1
+anchor_right = 0.84
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.055, 0.225, 0.245, 1)
+
+[node name="WallpaperMark" type="Label" parent="DesktopView"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -62.0
+offset_right = 330.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.09, 0.3, 0.31, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+mouse_filter = 2
+
+[node name="DesktopTopBar" type="ColorRect" parent="DesktopView"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.025, 0.06, 0.09, 1)
+
+[node name="DesktopTitle" type="Label" parent="DesktopView"]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = 10.0
+offset_right = 420.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0.89, 0.95, 0.92, 1)
+theme_override_font_sizes/font_size = 18
+mouse_filter = 2
+
+[node name="DesktopBack" type="Button" parent="DesktopView"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 2
+
+[node name="EditorIcon" type="Button" parent="DesktopView"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 28.0
+offset_right = 124.0
+offset_bottom = 148.0
+focus_mode = 2
+
+[node name="PixelScreen" type="TextureRect" parent="DesktopView/EditorIcon"]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 48.0
+offset_bottom = 46.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture_filter = 1
+expand_mode = 1
+stretch_mode = 0
+
+[node name="IconText" type="Label" parent="DesktopView/EditorIcon"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.94, 0.98, 1, 1)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="DesktopHint" type="Label" parent="DesktopView"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -92.0
+offset_right = -24.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.82, 0.9, 0.87, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="DesktopStatus" type="Label" parent="DesktopView"]
+visible = false
+layout_mode = 0
+offset_left = 38.0
+offset_top = 214.0
+offset_right = 310.0
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(0.9, 0.94, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+mouse_filter = 2
+
+[node name="DesktopTaskbar" type="ColorRect" parent="DesktopView"]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -52.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.018, 0.045, 0.068, 1)
+
+[node name="SystemMark" type="Label" parent="DesktopView/DesktopTaskbar"]
+visible = false
+layout_mode = 0
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 54.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.35, 0.88, 0.84, 1)
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="ActiveApp" type="Label" parent="DesktopView/DesktopTaskbar"]
+visible = false
+layout_mode = 0
+offset_left = 64.0
+offset_top = 12.0
+offset_right = 390.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.82, 0.9, 0.88, 1)
+theme_override_font_sizes/font_size = 14
+mouse_filter = 2
+
+[node name="SystemClock" type="Label" parent="DesktopView/DesktopTaskbar"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -210.0
+offset_top = 12.0
+offset_right = -18.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.82, 0.9, 0.88, 1)
+theme_override_font_sizes/font_size = 14
+horizontal_alignment = 2
+mouse_filter = 2
+
+[node name="EditorApp" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 28.0
+offset_right = -36.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+clip_contents = true
+
+[node name="NativeWindowFrame" type="TextureRect" parent="EditorApp"]
+layout_mode = 0
+offset_right = 1024.0
+offset_bottom = 576.0
+mouse_filter = 2
+texture_filter = 1
+texture = ExtResource("8_editor_window")
+expand_mode = 1
+stretch_mode = 0
+metadata/asset_path = "res://assets/art/ui_editor_window_day1_1024x576.png"
+
+[node name="WindowFrame" type="Panel" parent="EditorApp"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="OpaqueBackdrop" type="Panel" parent="EditorApp"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HeaderSurface" type="Panel" parent="EditorApp"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = 82.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="HeaderBand" type="MarginContainer" parent="EditorApp"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = -24.0
+offset_bottom = 52.0
+grow_horizontal = 2
+mouse_filter = 2
+clip_contents = true
+
+[node name="HeaderRow" type="HBoxContainer" parent="EditorApp/HeaderBand"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="WorkspaceHeading" type="Label" parent="EditorApp/HeaderBand/HeaderRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.97, 0.92, 1)
+theme_override_font_sizes/font_size = 18
+clip_text = true
+text_overrun_behavior = 3
+focus_mode = 2
+mouse_filter = 2
+
+[node name="EditorBack" type="Button" parent="EditorApp/HeaderBand/HeaderRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(232, 32)
+focus_mode = 2
+
+[node name="ViewTabs" type="OptionButton" parent="EditorApp"]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 24.0
+offset_top = 100.0
+offset_right = -24.0
+offset_bottom = 142.0
+grow_horizontal = 2
+focus_mode = 2
+
+[node name="GraphPane" type="Panel" parent="EditorApp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="GraphHeading" type="Label" parent="EditorApp/GraphPane"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 360.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.7, 0.95, 0.88, 1)
+theme_override_font_sizes/font_size = 20
+mouse_filter = 2
+
+[node name="GraphPrimaryAction" type="Button" parent="EditorApp/GraphPane"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_top = 8.0
+offset_right = -12.0
+offset_bottom = 52.0
+grow_horizontal = 0
+custom_minimum_size = Vector2(196, 44)
+focus_mode = 2
+
+[node name="GraphAuthoringPanel" parent="EditorApp/GraphPane" instance=ExtResource("2_authoring")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RequirementsPane" type="Panel" parent="EditorApp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="RequirementsHeading" type="Label" parent="EditorApp/RequirementsPane"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 360.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.84, 0.9, 0.98, 1)
+theme_override_font_sizes/font_size = 19
+mouse_filter = 2
+
+[node name="RequirementsScroll" type="ScrollContainer" parent="EditorApp/RequirementsPane"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 58.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+clip_contents = true
+
+[node name="RequirementsCopy" type="Label" parent="EditorApp/RequirementsPane/RequirementsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 2
+mouse_filter = 2
+
+[node name="ResultsPane" type="Panel" parent="EditorApp"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+clip_contents = true
+
+[node name="ResultsLayout" type="VBoxContainer" parent="EditorApp/ResultsPane"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="ResultsHeading" type="Label" parent="EditorApp/ResultsPane/ResultsLayout"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.85, 0.62, 1)
+theme_override_font_sizes/font_size = 19
+focus_mode = 2
+mouse_filter = 2
+
+[node name="ResultsBody" type="Control" parent="EditorApp/ResultsPane/ResultsLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+clip_contents = true
+
+[node name="ResultsMessageScroll" type="ScrollContainer" parent="EditorApp/ResultsPane/ResultsLayout/ResultsBody"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+clip_contents = true
+
+[node name="ResultsCopy" type="Label" parent="EditorApp/ResultsPane/ResultsLayout/ResultsBody/ResultsMessageScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+autowrap_mode = 2
+mouse_filter = 2
+
+[node name="ResultsCardsScroll" type="ScrollContainer" parent="EditorApp/ResultsPane/ResultsLayout/ResultsBody"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+clip_contents = true
+
+[node name="ResultsCards" type="VBoxContainer" parent="EditorApp/ResultsPane/ResultsLayout/ResultsBody/ResultsCardsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="ResultsFooter" type="HBoxContainer" parent="EditorApp/ResultsPane/ResultsLayout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+theme_override_constants/separation = 8
+
+[node name="ResultCaseSelect" type="OptionButton" parent="EditorApp/ResultsPane/ResultsLayout/ResultsFooter"]
+visible = false
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+fit_to_longest_item = false
+text_overrun_behavior = 3
+
+[node name="InspectButton" type="Button" parent="EditorApp/ResultsPane/ResultsLayout/ResultsFooter"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+custom_minimum_size = Vector2(152, 44)
+
+[node name="InspectPane" type="Panel" parent="EditorApp"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 112.0
+offset_right = -24.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="InspectHeading" type="Label" parent="EditorApp/InspectPane"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 244.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.82, 0.82, 0.96, 1)
+theme_override_font_sizes/font_size = 19
+mouse_filter = 2
+
+[node name="InspectClose" type="Button" parent="EditorApp/InspectPane"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -116.0
+offset_top = 10.0
+offset_right = -16.0
+offset_bottom = 54.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 16
+custom_minimum_size = Vector2(100, 44)
+
+[node name="InspectCopy" type="Label" parent="EditorApp/InspectPane"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = -16.0
+offset_bottom = 234.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 2
+mouse_filter = 2
+
+[node name="InspectRail" type="ScrollContainer" parent="EditorApp/InspectPane"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 64.0
+offset_right = -16.0
+offset_bottom = 234.0
+grow_horizontal = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+clip_contents = true
+
+[node name="Rows" type="VBoxContainer" parent="EditorApp/InspectPane/InspectRail"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="SandboxInspectHost" type="Control" parent="EditorApp/InspectPane"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 290.0
+offset_right = -26.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+clip_contents = true
+mouse_filter = 2
+z_index = 1
+
+[node name="SandboxFrame" type="Panel" parent="EditorApp/InspectPane"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 250.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SandboxFrameTitle" type="Label" parent="EditorApp/InspectPane/SandboxFrame"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -10.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
+mouse_filter = 2
+z_index = 2
+
+[node name="SandboxLegend" type="Label" parent="EditorApp/InspectPane/SandboxFrame"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -50.0
+offset_right = -10.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 13
+autowrap_mode = 2
+vertical_alignment = 1
+mouse_filter = 2
+z_index = 2
+
+[node name="EditorStatus" type="Label" parent="EditorApp"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -54.0
+offset_right = -24.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.92, 0.94, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+mouse_filter = 2

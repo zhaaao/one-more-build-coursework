@@ -1,0 +1,145 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource path="res://src/presentation/gvet/coursework_gvet_panel.gd" type="Script" id="1_panel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.055, 0.071, 0.105, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.18, 0.26, 0.38, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 18.0
+content_margin_top = 14.0
+content_margin_right = 18.0
+content_margin_bottom = 14.0
+
+[node name="CourseworkGvetPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_panel")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Layout" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.87, 1, 1)
+theme_override_font_sizes/font_size = 26
+
+[node name="InstructionLabel" type="Label" parent="Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Controls" type="HBoxContainer" parent="Panel/Layout"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="LoadButton" type="Button" parent="Panel/Layout/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 40)
+layout_mode = 2
+focus_mode = 2
+
+[node name="DecisionToggle" type="CheckButton" parent="Panel/Layout/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 40)
+layout_mode = 2
+focus_mode = 2
+
+[node name="RunButton" type="Button" parent="Panel/Layout/Controls"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 40)
+layout_mode = 2
+focus_mode = 2
+
+[node name="StaleBadge" type="Label" parent="Panel/Layout/Controls"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Workspace" type="HSplitContainer" parent="Panel/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+split_offset = 755
+
+[node name="GraphEdit" type="GraphEdit" parent="Panel/Layout/Workspace"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+show_grid = true
+snapping_enabled = false
+minimap_enabled = true
+show_menu = false
+
+[node name="ReportPanel" type="VBoxContainer" parent="Panel/Layout/Workspace"]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+theme_override_constants/separation = 7
+
+[node name="OutcomeLabel" type="Label" parent="Panel/Layout/Workspace/ReportPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="ReasonLabel" type="Label" parent="Panel/Layout/Workspace/ReportPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="TraceTitle" type="Label" parent="Panel/Layout/Workspace/ReportPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.87, 1, 1)
+theme_override_font_sizes/font_size = 17
+
+[node name="TraceList" type="ItemList" parent="Panel/Layout/Workspace/ReportPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 3
+allow_reselect = true
+
+[node name="TraceDetail" type="RichTextLabel" parent="Panel/Layout/Workspace/ReportPanel"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 220)
+layout_mode = 2
+size_flags_vertical = 3
+fit_content = false
+scroll_active = true
+
+[node name="FooterLabel" type="Label" parent="Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.58, 0.67, 0.78, 1)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1

@@ -1,0 +1,308 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/authoring/graph_authoring_panel.gd" id="1_panel"]
+[ext_resource type="FontFile" path="res://assets/fonts/Silkscreen-Regular.ttf" id="2_silkscreen_regular"]
+[ext_resource type="FontFile" path="res://assets/fonts/Silkscreen-Bold.ttf" id="3_silkscreen_bold"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.0901961, 0.129412, 0.168627, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.27451, 0.74902, 0.815686, 1)
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_run_activity"]
+bg_color = Color(0.0901961, 0.129412, 0.168627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27451, 0.74902, 0.815686, 1)
+content_margin_left = 24.0
+content_margin_top = 16.0
+content_margin_right = 24.0
+content_margin_bottom = 16.0
+
+[node name="GraphAuthoringPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_panel")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+clip_contents = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Layout" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27451, 0.74902, 0.815686, 1)
+theme_override_font_sizes/font_size = 24
+
+[node name="Help" type="Label" parent="Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="Toolbar" type="GridContainer" parent="Panel/Layout"]
+layout_mode = 2
+columns = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 8
+
+[node name="PaletteOption" type="OptionButton" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="CreateButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="ConfigureButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="ConnectButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="DisconnectButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="DeleteButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="UndoButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="RedoButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="MoveButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="ZoomInButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="ZoomOutButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="CycleButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="FrameAllButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="ResetButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="MoreButton" type="MenuButton" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="AutoSolveButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="RunButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="RunAllButton" type="Button" parent="Panel/Layout/Toolbar"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(142, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="StatusLabel" type="Label" parent="Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.905882, 0.658824, 0.294118, 1)
+autowrap_mode = 2
+
+[node name="ViewLabel" type="Label" parent="Panel/Layout"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.909804, 0.941176, 0.94902, 1)
+
+[node name="ResetConfirmation" type="HBoxContainer" parent="Panel/Layout"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ResetPrompt" type="Label" parent="Panel/Layout/ResetConfirmation"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResetCancelButton" type="Button" parent="Panel/Layout/ResetConfirmation"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="ResetConfirmButton" type="Button" parent="Panel/Layout/ResetConfirmation"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 44)
+layout_mode = 2
+focus_mode = 2
+
+[node name="Workspace" type="HSplitContainer" parent="Panel/Layout"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 220)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+split_offset = 760
+
+[node name="GraphEdit" type="GraphEdit" parent="Panel/Layout/Workspace"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(560, 220)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+show_grid = true
+snapping_enabled = true
+snapping_distance = 8
+minimap_enabled = true
+show_menu = false
+focus_mode = 2
+zoom_min = 0.6
+zoom_max = 1.0
+
+[node name="ReportPanel" type="VBoxContainer" parent="Panel/Layout/Workspace"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 220)
+theme_override_constants/separation = 8
+
+[node name="ReportHeading" type="Label" parent="Panel/Layout/Workspace/ReportPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27451, 0.74902, 0.815686, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="ReportLabel" type="RichTextLabel" parent="Panel/Layout/Workspace/ReportPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+fit_content = false
+
+[node name="RunActivityOverlay" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+z_index = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_run_activity")
+
+[node name="Center" type="CenterContainer" parent="RunActivityOverlay"]
+layout_mode = 2
+
+[node name="Content" type="VBoxContainer" parent="RunActivityOverlay/Center"]
+layout_mode = 2
+custom_minimum_size = Vector2(280, 120)
+theme_override_constants/separation = 8
+
+[node name="RunActivityHeading" type="Label" parent="RunActivityOverlay/Center/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 2
+theme_override_fonts/font = ExtResource("3_silkscreen_bold")
+theme_override_colors/font_color = Color(0.27451, 0.74902, 0.815686, 1)
+theme_override_colors/font_outline_color = Color(0.0901961, 0.129412, 0.168627, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="RunActivityState" type="Label" parent="RunActivityOverlay/Center/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_silkscreen_regular")
+theme_override_colors/font_color = Color(0.909804, 0.941176, 0.94902, 1)
+theme_override_font_sizes/font_size = 18
+autowrap_mode = 2
+horizontal_alignment = 1
+
+[node name="RunActivityMarker" type="Label" parent="RunActivityOverlay/Center/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_silkscreen_regular")
+theme_override_colors/font_color = Color(0.905882, 0.658824, 0.294118, 1)
+theme_override_font_sizes/font_size = 18
+horizontal_alignment = 1

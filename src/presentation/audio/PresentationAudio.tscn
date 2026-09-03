@@ -1,0 +1,66 @@
+[gd_scene load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/audio/presentation_audio.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://assets/audio/music/omb_workstation_loop_120bpm_v01.wav" id="2_music"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_ui_press_01_v01.wav" id="3_press_01"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_ui_press_02_v01.wav" id="4_press_02"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_ui_press_03_v01.wav" id="5_press_03"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_ui_press_04_v01.wav" id="6_press_04"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_pause_open_01_v01.wav" id="7_pause_open"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_pause_resume_01_v01.wav" id="8_pause_resume"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_save_success_01_v01.wav" id="9_save_success"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_save_failure_01_v01.wav" id="10_save_failure"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_load_success_01_v01.wav" id="11_load_success"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_load_failure_01_v01.wav" id="12_load_failure"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_day_complete_01_v01.wav" id="13_day_complete"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_final_outcome_reliable_v01.wav" id="14_final_reliable"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_final_outcome_firefighter_v01.wav" id="15_final_firefighter"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ui/omb_final_outcome_guidance_v01.wav" id="16_final_guidance"]
+
+[node name="PresentationAudio" type="Node"]
+script = ExtResource("1_script")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_music")
+
+[node name="UiPress01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_press_01")
+
+[node name="UiPress02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_press_02")
+
+[node name="UiPress03" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_press_03")
+
+[node name="UiPress04" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_press_04")
+
+[node name="PauseOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pause_open")
+
+[node name="PauseResume" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pause_resume")
+
+[node name="SaveSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_save_success")
+
+[node name="SaveFailure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_save_failure")
+
+[node name="LoadSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_load_success")
+
+[node name="LoadFailure" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_load_failure")
+
+[node name="DayComplete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_day_complete")
+
+[node name="FinalOutcomeReliable" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_final_reliable")
+
+[node name="FinalOutcomeFirefighter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_final_firefighter")
+
+[node name="FinalOutcomeGuidance" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_final_guidance")

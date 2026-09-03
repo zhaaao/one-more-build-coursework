@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/presentation/sandbox/sandbox_visual_projection.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/art/env_company_far_1024.png" id="1_far"]
+[ext_resource type="Texture2D" path="res://assets/art/env_company_mid_1024.png" id="2_mid"]
+[ext_resource type="Texture2D" path="res://assets/art/env_workstation_near_1024.png" id="3_near"]
+
+[node name="SandboxVisualProjection" type="Control"]
+offset_right = 1024.0
+offset_bottom = 1024.0
+mouse_filter = 2
+texture_filter = 1
+texture_repeat = 1
+script = ExtResource("1_script")
+
+[node name="FarCompanyLayer" type="TextureRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 1024.0
+mouse_filter = 2
+texture = ExtResource("1_far")
+
+[node name="MidCompanyLayer" type="TextureRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 1024.0
+mouse_filter = 2
+texture = ExtResource("2_mid")
+
+[node name="MonitorContent" type="Control" parent="."]
+z_index = 1
+offset_left = 220.0
+offset_top = 96.0
+offset_right = 760.0
+offset_bottom = 496.0
+mouse_filter = 2
+
+[node name="SandboxContent" type="Control" parent="."]
+z_index = 1
+offset_left = 240.0
+offset_top = 504.0
+offset_right = 760.0
+offset_bottom = 720.0
+mouse_filter = 2
+
+[node name="NearWorkstationLayer" type="TextureRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 1024.0
+mouse_filter = 2
+texture = ExtResource("3_near")
