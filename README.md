@@ -8,7 +8,7 @@ One More Build is a five-day Godot coursework game about repairing typed visual 
 - Godot Engine 4.7.2 stable
 - Keyboard and mouse
 
-Open `project.godot` in Godot 4.7.2 and press **F6 / Run Project**. No network connection, account, database, external service, or separately installed add-on is required.
+Open `project.godot` in Godot 4.7.2 and press **F5 / Run Project**. No network connection, account, database, external service, or separately installed add-on is required.
 
 ## Player flow
 
